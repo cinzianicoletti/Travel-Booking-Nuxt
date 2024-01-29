@@ -1,5 +1,6 @@
 # 🔷 BEFORE YOU START!
 
+![image description](public/screenshot.png)
 
 ## API FOLDER
 
