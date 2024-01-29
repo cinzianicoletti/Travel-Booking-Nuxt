@@ -1,0 +1,245 @@
+{
+  "uuid": "c4376032-f89f-4c45-815b-9f6e1594b649",
+  "lastMigration": 32,
+  "name": "WeRoad",
+  "endpointPrefix": "api/",
+  "latency": 0,
+  "port": 10,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "34771794-7e60-4354-aa49-1bc7f6014a4b",
+      "name": "WETRAVEL",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "f0ad93b5-7396-4947-927a-2574570484eb"
+        },
+        {
+          "type": "route",
+          "uuid": "3578aac5-04ee-4220-ab9d-ccfc973cb915"
+        },
+        {
+          "type": "route",
+          "uuid": "4aa22106-578f-4786-a2fc-a79ba29f8e3d"
+        },
+        {
+          "type": "route",
+          "uuid": "bd891403-7217-471c-9f2f-5e5c8a8d386c"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "f0ad93b5-7396-4947-927a-2574570484eb",
+      "type": "http",
+      "documentation": "Global rules",
+      "method": "all",
+      "endpoint": "*",
+      "responses": [
+        {
+          "uuid": "ee3a151d-ba02-4c6d-b932-a542b2d61ac8",
+          "body": "{\n  \"error\": \"Unauthorized\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Requires the presence of an 'Authorization' header",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": "FALLBACK"
+    },
+    {
+      "uuid": "3578aac5-04ee-4220-ab9d-ccfc973cb915",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "travels",
+      "responses": [
+        {
+          "uuid": "58193f2c-8570-412d-9a06-613dc325c512",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "fh7h",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "4aa22106-578f-4786-a2fc-a79ba29f8e3d",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "bookings",
+      "responses": [
+        {
+          "uuid": "ead45538-1a46-4e13-a71d-f2fe0ece38fd",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "d75j",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "bd891403-7217-471c-9f2f-5e5c8a8d386c",
+      "type": "crud",
+      "documentation": "Get all",
+      "method": "",
+      "endpoint": "payments",
+      "responses": [
+        {
+          "uuid": "ab8b63ee-ae83-48e5-b089-a1d9514c94c5",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2a1f",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4be1dc06-aee8-4b49-a286-7dfe188a668e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f5779a31-323f-40d8-97a9-5dcb5e7e604b",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "34771794-7e60-4354-aa49-1bc7f6014a4b"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "api/",
+    "keyPath": "",
+    "caPath": "api/",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "b0b9e049-0cb5-480a-bd1f-d9ebfd564c93",
+      "id": "fh7h",
+      "name": "Travels",
+      "documentation": "",
+      "value": "[\n {\n  \"id\": 0,\n  \"name\": \"Vienna\",\n  \"startDate\": \"11/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/ejo10wq0ugblokf6kc7f\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"700\"\n}, {\n  \"id\": 1,\n  \"name\": \"Mauritius\",\n  \"startDate\": \"12/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/mesgvhfeajhxvzzj975z\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"800\"\n}, { \n  \"id\": 2,\n  \"name\": \"Udine\",\n  \"startDate\": \"15/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/ejo10wq0ugblokf6kc7f\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"900\"\n}\n]"
+    },
+    {
+      "uuid": "759ed970-783f-4830-a8fb-ce7e857ec77f",
+      "id": "d75j",
+      "name": "Bookings",
+      "documentation": "",
+      "value": "[\n {\n  \"id\": 0,\n  \"travel\": \"1\",\n  \"customer\": \"Cinzia Nicoletti\",\n  \"customer_email\": \"erfd@dfs.ifds\",\n  \"customer_phone\": \"+39 43324324\",\n  \"custumer_birth_date\" : \"22/01/1990\",\n  \"custumer_gender\": \"Female\",\n  \"payment\": \"0\",\n  \"notes\": \"Note\"\n}, {\n  \"id\": 1,\n  \"travel\": \"1\",\n  \"customer\": \"Diego de la Vega\",\n  \"customer_email\": \"erfd@dfs.ifds\",\n  \"customer_phone\": \"+39 43324324\",\n  \"custumer_birth_date\" : \"22/01/1990\",\n  \"custumer_gender\": \"Female\",\n  \"payment\": \"2\",\n  \"notes\": \"Note\"\n}, { \n \"id\": 2,\n  \"travel\": \"2\",\n  \"customer\": \"Pippi calzelunghe\",\n  \"customer_email\": \"erfd@dfs.ifds\",\n  \"customer_phone\": \"+39 43324324\",\n  \"custumer_birth_date\" : \"22/01/1990\",\n  \"custumer_gender\": \"Female\",\n  \"payment\": \"2\",\n  \"notes\": \"Note\"\n}\n]"
+    },
+    {
+      "uuid": "ae9724f5-be0c-4b9b-88bb-e6c175ffd498",
+      "id": "2a1f",
+      "name": "Payments",
+      "documentation": "",
+      "value": "[\n {\n  \"id\": 0,\n  \"name\": \"Paypal\"\n}, \n{\n  \"id\": 1,\n  \"name\": \"Credit transfer\"\n},\n{\n  \"id\": 2,\n  \"name\": \"Revolut\"\n}\n]"
+    }
+  ],
+  "callbacks": []
+}

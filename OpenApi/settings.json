@@ -1,0 +1,32 @@
+{
+  "welcomeShown": true,
+  "bannerDismissed": [],
+  "logSizeLimit": 10000,
+  "maxLogsPerEnvironment": 50,
+  "truncateRouteName": true,
+  "mainMenuSize": 204,
+  "secondaryMenuSize": 298,
+  "fakerLocale": "en",
+  "fakerSeed": null,
+  "lastChangelog": "6.1.0",
+  "environments": [
+    {
+      "uuid": "c4376032-f89f-4c45-815b-9f6e1594b649",
+      "path": "/Users/Cinzia/Library/Application Support/mockoon/storage/demo.json"
+    }
+  ],
+  "disabledRoutes": {
+    "c4376032-f89f-4c45-815b-9f6e1594b649": []
+  },
+  "collapsedFolders": {
+    "c4376032-f89f-4c45-815b-9f6e1594b649": [
+      "34771794-7e60-4354-aa49-1bc7f6014a4b"
+    ]
+  },
+  "enableTelemetry": true,
+  "storagePrettyPrint": true,
+  "fileWatcherEnabled": "disabled",
+  "dialogWorkingDir": "",
+  "startEnvironmentsOnLoad": false,
+  "logTransactions": false
+}
