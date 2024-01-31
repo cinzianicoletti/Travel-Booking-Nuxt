@@ -192,30 +192,43 @@
       "uuid": "34771794-7e60-4354-aa49-1bc7f6014a4b"
     }
   ],
-  "proxyMode": false,
-  "proxyHost": "",
+  "proxyMode": true,
+  "proxyHost": "http://localhost:3000",
   "proxyRemovePrefix": false,
   "tlsOptions": {
     "enabled": false,
     "type": "CERT",
     "pfxPath": "",
-    "certPath": "api/",
+    "certPath": "",
     "keyPath": "",
-    "caPath": "api/",
+    "caPath": "",
     "passphrase": ""
   },
   "cors": true,
-  "headers": [],
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
   "proxyReqHeaders": [
     {
-      "key": "",
-      "value": ""
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
     }
   ],
   "proxyResHeaders": [
     {
-      "key": "",
-      "value": ""
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
     }
   ],
   "data": [
@@ -224,7 +237,7 @@
       "id": "fh7h",
       "name": "Travels",
       "documentation": "",
-      "value": "[\n {\n  \"id\": 0,\n  \"name\": \"Vienna\",\n  \"startDate\": \"11/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/ejo10wq0ugblokf6kc7f\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"700\"\n}, {\n  \"id\": 1,\n  \"name\": \"Mauritius\",\n  \"startDate\": \"12/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/mesgvhfeajhxvzzj975z\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"800\"\n}, { \n  \"id\": 2,\n  \"name\": \"Udine\",\n  \"startDate\": \"15/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/ejo10wq0ugblokf6kc7f\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"900\"\n}\n]"
+      "value": "[\n {\n  \"id\": 0,\n  \"name\": \"Vienna\",\n  \"startDate\": \"11/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/ejo10wq0ugblokf6kc7f\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"700\"\n}, {\n  \"id\": 1,\n  \"name\": \"Mauritius\",\n  \"startDate\": \"12/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/mesgvhfeajhxvzzj975z\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"800\"\n}, { \n  \"id\": 2,\n  \"name\": \"Udine\",\n  \"startDate\": \"15/10/2023\",\n  \"endDate\": \"16/10/2023\",\n  \"image\": \"weroad/aykmkz1qpdgbpospdqo1\",\n  \"description\": \"Lorem Ipsum\",\n  \"price\": \"900\"\n}\n]"
     },
     {
       "uuid": "759ed970-783f-4830-a8fb-ce7e857ec77f",
