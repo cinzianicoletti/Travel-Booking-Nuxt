@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const route = useRoute()
-const page = ref(1)
+const route = useRoute();
 
 const sections = [{
   slot: 'travels',
@@ -8,32 +7,25 @@ const sections = [{
 }, {
   slot: 'bookings',
   label: 'Booking'
-}]
+}];
 
 const travels = useState('travels');
 const bookings = useState('bookings');
 const payments = useState('payments');
 
 try {
-  const dataTravels = await useAsyncData('travels', () => $fetch('http://localhost:10/api/travels',
-      {
-        params: {
-          page: page.value
-        }
-      }), {watch: [page]})
-  const dataBookings = await useAsyncData('bookings', () => $fetch('http://localhost:10/api/bookings', {
-    params: {
-      page: page.value
-    }
-  }), {watch: [page]})
-  const dataPayments = await useAsyncData('payments', () => $fetch('http://localhost:10/api/payments'))
+  const dataTravels = await useAsyncData('travels', () => $fetch('http://localhost:10/api/travels'));
+  const dataBookings = await useAsyncData('bookings', () => $fetch('http://localhost:10/api/bookings'));
+  const dataPayments = await useAsyncData('payments', () => $fetch('http://localhost:10/api/payments'));
 
   travels.value = dataTravels.data;
   bookings.value = dataBookings.data;
   payments.value = dataPayments.data;
+
 } catch (e) {
   console.error("FETCH DATA", e);
 }
+
 </script>
 
 <template>

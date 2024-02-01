@@ -62,8 +62,7 @@ const actions = (row: any) => [
 ]
 
 let modalIsOpen = ref(false)
-const travelsData = useState('travels');
-const travels: any = travelsData?.value;
+let travelsData: any = useState('travels');
 
 let travelForm = reactive({
   id: undefined,
@@ -92,7 +91,7 @@ const options = {
 // ---------- FUNCTIONS
 function openModal(id: any) {
   modalIsOpen.value = true;
-  const travel = travels.find((item: any) => item.id === id);
+  const travel = travelsData.value.find((item: any) => item.id === id);
 
   if (id !== "") {
     travelForm.id = id;
@@ -121,12 +120,19 @@ async function onSubmitTravel() {
       body: travelForm
     });
   }
+
+  travelsData.value = travelsData.value.map((item: any) =>
+      item.id === travelForm.id ? {...item, ...travelForm} : item
+  );
+
 }
 
 async function onDelete(id: any) {
   await useFetch('http://localhost:10/api/travels/' + id, {
     method: 'DELETE'
   });
+
+  travelsData.value = travelsData.value.filter((item: any) => item.id !== id);
 }
 
 async function onUpload(result: any, widget: any) {
@@ -136,7 +142,7 @@ async function onUpload(result: any, widget: any) {
 </script>
 
 <template>
-  <UTable :rows="travels" :columns="columns">
+  <UTable :rows="travelsData" :columns="columns">
     <template #image-data="{ row }">
       <CldImage
           v-if="row?.image !== ''"
@@ -144,7 +150,6 @@ async function onUpload(result: any, widget: any) {
           width="100"
           height="100"
           class="h-20 rounded-sm ring-1"
-          :api-key="apiKey"
           :uploadPreset="upload_preset"
           alt="My Awesome Image"/>
     </template>

@@ -57,11 +57,9 @@ const actions = (row: any) => [
 let modalIsOpen = ref(false);
 const idBookingSelected = ref();
 
-const bookingsData = useState('bookings');
-const bookings: any = bookingsData?.value;
+const bookingsData: any = useState('bookings');
 
 const paymentsData = useState('payments');
-const payments: any = paymentsData?.value;
 
 const travelsData = useState('travels');
 const travels: any = travelsData?.value;
@@ -82,7 +80,7 @@ let bookingForm = reactive({
 
 function openModal(id: any) {
   modalIsOpen.value = true;
-  const booking = bookings.find((item: any) => item.id === id);
+  const booking = bookingsData.value.find((item: any) => item.id === id);
 
   if (id !== "") {
     idBookingSelected.value = id;
@@ -123,19 +121,24 @@ async function onSubmitBooking() {
       body: bookingForm
     });
   }
+
+  bookingsData.value = bookingsData.value.map((item: any) =>
+      item.id === bookingForm.id ? {...item, ...bookingForm} : item
+  );
 }
 
 async function onDelete(id: any) {
   await useFetch('http://localhost:10/api/bookings/' + id, {
     method: 'DELETE'
   });
+  bookingsData.value = bookingsData.value.filter((item : any) => item.id !== id);
 }
 
 </script>
 
 <template>
   <NuxtLoadingIndicator/>
-  <UTable :rows="bookings" :columns="columns">
+  <UTable :rows="bookingsData" :columns="columns">
     <template #travel-data="{ row }">
       {{ travels.find((item: any) => item.id === row.id)?.name }}
     </template>
