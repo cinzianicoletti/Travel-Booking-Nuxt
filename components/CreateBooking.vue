@@ -70,14 +70,12 @@ async function onSubmitBooking() {
         <template #Tab1="{ item }" >
           <div class="p-4">
             <UFormGroup label="Travels" required>
-              <USelectMenu
+              <USelect
                   v-model="bookingForm.travel"
-                  :options="travels"
-                  name="travel"
+                  :options="travelsData"
                   placeholder="Select travel"
                   value-attribute="id"
                   option-attribute="name"
-                  required
               />
             </UFormGroup>
             <UButton @click="onSubmitTravel" color="gray" variant="solid" class="mt-3">
@@ -118,13 +116,12 @@ async function onSubmitBooking() {
               <UInput v-model="bookingForm.notes" required/>
             </UFormGroup>
             <UFormGroup label="Payment">
-              <USelectMenu
+              <USelect
                   v-model="bookingForm.payment"
-                  :options="payments"
-                  placeholder="Select a payment"
+                  :options="paymentsData"
+                  placeholder="Select payment"
                   value-attribute="id"
                   option-attribute="name"
-                  required
               />
               <UButton type="submit" color="black" class="mt-3">
                 Save booking

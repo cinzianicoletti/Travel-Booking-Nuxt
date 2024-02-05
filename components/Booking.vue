@@ -57,16 +57,13 @@ const actions = (row: any) => [
 let modalIsOpen = ref(false);
 const idBookingSelected = ref();
 
-const bookingsData: any = useState('bookings');
-
-const paymentsData = useState('payments');
-
-const travelsData = useState('travels');
-const travels: any = travelsData?.value;
+let bookingsData: any = useState('bookings');
+let travelsData: any = useState('travels');
+let paymentsData: any = useState('payments');
 
 const openCreateBookingModal: any = useState('openCreateBookingModal');
 
-let bookingForm = reactive({
+let bookingForm: any = reactive({
   id: undefined,
   customer: "",
   customer_email: "",
@@ -131,7 +128,7 @@ async function onDelete(id: any) {
   await useFetch('http://localhost:10/api/bookings/' + id, {
     method: 'DELETE'
   });
-  bookingsData.value = bookingsData.value.filter((item : any) => item.id !== id);
+  bookingsData.value = bookingsData.value.filter((item: any) => item.id !== id);
 }
 
 </script>
@@ -140,10 +137,10 @@ async function onDelete(id: any) {
   <NuxtLoadingIndicator/>
   <UTable :rows="bookingsData" :columns="columns">
     <template #travel-data="{ row }">
-      {{ travels.find((item: any) => item.id === row.id)?.name }}
+      {{ travelsData[row.travel]?.name }}
     </template>
     <template #payment-data="{ row }">
-      {{ payments.find((item: any) => item.id === row.id)?.name }}
+      {{ paymentsData[row.payment]?.name }}
     </template>
 
     <template #actions-data="{ row }">
@@ -172,9 +169,9 @@ async function onDelete(id: any) {
           <UInput v-model="bookingForm.customer"/>
         </UFormGroup>
         <UFormGroup label="Payment">
-          <USelectMenu
+          <USelect
               v-model="bookingForm.payment"
-              :options="payments"
+              :options="paymentsData"
               placeholder="Select payment"
               value-attribute="id"
               option-attribute="name"
@@ -184,13 +181,12 @@ async function onDelete(id: any) {
           <UInput v-model="bookingForm.notes"/>
         </UFormGroup>
         <UFormGroup label="Travel" name="travel">
-          <USelectMenu
+          <USelect
               v-model="bookingForm.travel"
-              :options="travels"
-              :name="travels.name"
+              :options="travelsData"
               placeholder="Select travel"
-              :value-attribute="travels.id"
-              :option-attribute="travels.name"
+              value-attribute="id"
+              option-attribute="name"
           />
         </UFormGroup>
         <UButton type="submit" color="black" class="mt-3">
